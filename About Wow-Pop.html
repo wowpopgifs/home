@@ -24,6 +24,7 @@
 #font {font-size: 100px;
         color: white;}
 #font:hover {color: red;}
+#td:hover {background-color: red;}
 #picture.sticky{
 position: -webkit-sticky;
 position: fixed;
@@ -32,6 +33,9 @@ top: 25%;
 left: 15%;
 bottom: 25%;
 }
+text2 {
+       display: none;
+      }
 .id {
         /* The image used */
   background-image: url("Wow-Pop3248.jpg");
@@ -173,6 +177,30 @@ bottom: 25%;
 </table>
 <div class="bg-img">
 <div class="text">
+<table style="background-color: transparent;">
+<tbody>
+<tr>
+<td>
+<i title="TRANSLATE." style="color: white;font-size: 50px;border-radius: 50%;background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */" id="click1" class="material-icons">translate</i>
+</td>
+</tr>
+</tbody>
+</table>
+<text2>
+<table style="background-color: transparent;width: 300px;">
+<tbody>
+<tr>
+<td id="td" style="width: 50%;"><h1 onclick="location.href='Wow-Pop के बारे में.html'" style="color: white;hover:color: red;font-family: sans-serif">हिंदी</h1></td>
+</tr>
+<tr>
+<td id="td"><h1 onclick="location.href='Wow-Pop に ついて.html'" style="color: white;hover:color: red;font-family: sans-serif;">日本語</h1></td>
+</tr>
+<tr>
+<td id="td"><h1 onclick="location.href='关于 Wow-Pop.html'" style="color: white;hover:color: red;font-family: sans-serif;">中文</h1></td>
+</tr>
+</tbody>
+</table>
+</text2>
 <h1>"Be Refresh with a New Chat in this New Year with,</h1>
 <img style="border-radius: 50%;" width="100px" height="100px" src="Wow-Pop1.png"/>
 <h1 style="color: gold;">The World of The Wow Gifs.</h1><h1>Gifs."</h1>
@@ -207,6 +235,14 @@ bottom: 25%;
     <div class="scrollbar-track">
     <div class="scrollbar-thumb"></div></div></div></div>
 <script>
+        var toggle = document.getElementById("click1");
+        toggle.addEventListener("click", show);
+
+        function show() {
+            var p = document.getElementsByTagName("text2")[0].style.display = "block";
+        }
+</script>
+<script>
 function myFunction() {
   var x = document.getElementById("picture");
   if (x.style.display === "none") {
@@ -219,3 +255,4 @@ function myFunction() {
 </body>
 
 </html>
+
