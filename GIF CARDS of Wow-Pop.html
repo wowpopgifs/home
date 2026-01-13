@@ -15,12 +15,13 @@
 
   gtag('config', 'G-0YY6N3V7YD');
 </script>
-<title>Gif Cards of Wow-Pop.</title>
+<title>GIF CARDS of Wow-Pop.</title>
 <link rel="icon" type="image/png" href="Wow-Pop1.png">
 <style>
 #icon {font-size: 60px;
        color: gold;}
 #icon:hover {color: red;}
+#td:hover {background-color: red;}
 #picture.sticky{
 position: -webkit-sticky;
 position: fixed;
@@ -29,6 +30,9 @@ top: 25%;
 left: 15%;
 bottom: 25%;
 }
+text2 {
+       display: none;
+      }
 #font {font-size: 100px;
        color: white;}
 #font1 {font-size: 100px;
@@ -131,6 +135,30 @@ bottom: 25%;
 </table>
 <div class="bg-img">
 <div class="text">
+<table style="background-color: transparent;">
+<tbody>
+<tr>
+<td>
+<i title="TRANSLATE." style="color: white;font-size: 50px;border-radius: 50%;background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */" id="click1" class="material-icons">translate</i>
+</td>
+</tr>
+</tbody>
+</table>
+<text2>
+<table style="background-color: transparent;width: 300px;">
+<tbody>
+<tr>
+<td id="td" style="width: 50%;"><h1 onclick="location.href='Wow-Pop के GIF CARDS.html'" style="color: white;hover:color: red;font-family: sans-serif">हिंदी</h1></td>
+</tr>
+<tr>
+<td id="td"><h1 onclick="location.href='Wow-Pop の GIF CARDS.html'" style="color: white;hover:color: red;font-family: sans-serif;">日本語</h1></td>
+</tr>
+<tr>
+<td id="td"><h1 onclick="location.href='Wow-Pop 的 GIF CARDS.html'" style="color: white;hover:color: red;font-family: sans-serif;">中文</h1></td>
+</tr>
+</tbody>
+</table>
+</text2>
 <center><i id="font" class="material-icons">gif_box</i></center>
 <h1 id="border" style="color: white;">GIF CARDS of Wow-Pop</h1>
      <img id="radius" onclick="location.href='https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjhibnVxYmc5a3dmcG01NGpqYnMxcGd6cG5lYzU5c2FwaTZqOHk2OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WOfO5HwZvI9V70tpSk/giphy.gif'" title="2026 Be the Most Lovely Year!" width="135px" height="240px" src="MostLovelyYear.gif"/>
@@ -165,5 +193,14 @@ bottom: 25%;
 </table>
 </div>
 </div>
+<script>
+        var toggle = document.getElementById("click1");
+        toggle.addEventListener("click", show);
+
+        function show() {
+            var p = document.getElementsByTagName("text2")[0].style.display = "block";
+        }
+</script>
 </body>
+
 </html>
