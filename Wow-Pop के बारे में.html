@@ -92,79 +92,141 @@ text2 {
                max-height: 500px;
                background-image: url("Untitled%20343.png");
     }
-    .slider-wrapper{
-        position: relative;
+    .gif-slideshow {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 300px;
+      background: #111;
+      z-index: 1000;
+      overflow: hidden;
     }
-    .slider-wrapper .slide-button{
-        position: absolute;
-        top: 50%;
-        height: 50px;
-        width: 50px;
-        color: #fff;
-        border: none;
-        outline: none;
-        background: rgba(0,0,0, 0.4);
-        font-size: 2.2rem;
-        cursor: pointer;
-        border-radius: 50%;
-        transform: translateY(-50%);
-        
+
+    /* GIF fills the slideshow */
+    .gif-display {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
     }
-    .slider-wrapper .slide-button:hover{
-        background: #444;
+
+    .gif-display img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
-    .slider-wrapper .slide-button#prev-slide{
-        left: -20px;
-        
+
+    /* Optional dark overlay for better button visibility */
+    .gif-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.15),
+        transparent 35%,
+        transparent 60%,
+        rgba(0, 0, 0, 0.30)
+      );
+      pointer-events: none;
     }
-    .slider-wrapper .slide-button#next-slide{
-        right: -20px;
-        
+
+    /* Controls positioned over the GIF */
+    .gif-controls {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 12px;
+      z-index: 2;
     }
-    .slider-wrapper .image-list{
-        display: grid;
-        gap: 18px;
-        overflow-x: auto;
-        scrollbar-width: none;
-        grid-template-columns: repeat(20,1fr);
+
+    /* Semi-transparent overlay buttons */
+    .gif-controls button {
+      background: rgba(0, 0, 0, 0.65);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      border-radius: 30px;
+      padding: 10px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      transition: background 0.2s, transform 0.2s;
     }
-    .slider-scrollbar{
-        height: 24px;
-        width: 100%;
-        display: flex;
-        align-items: center;
+
+    .gif-controls button:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: scale(1.05);
     }
-    .slider-scrollbar .scrollbar-track{
-        height: 2px;
-        width: 100%;
-        background: #ccc;
-        position: relative;
-        border-radius: 4px;
+
+    .gif-controls button:focus-visible {
+      outline: 2px solid white;
+      outline-offset: 3px;
     }
-    .slider-scrollbar:hover .scrollbar-track{
-        height: 4px;
+
+    /* Slide number shown over the GIF */
+    #slideCounter {
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 7px 11px;
+      border-radius: 20px;
+      font-size: 13px;
     }
-    .slider-scrollbar .scrollbar-thumb{
-        position: absolute;
-        height: 2px;
-        width: 50%;
-        background: #000;
-        border-radius: inherit;
-        cursor: grab;
+
+    /* Top-right close button */
+    .close-button {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      padding: 0 !important;
+      font-size: 23px !important;
+      border-radius: 50% !important;
     }
-    .slider-scrollbar .scrollbar-track:active{
-        cursor: grabbing;
-        height: 8px;
-        top: -2px;
-    }
-    .slider-scrollbar .scrollbar-thumb:after{
-        content:""
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: -10px;
-        bottom: -10px;
-    }
+
+    /* Small-screen layout */
+    @media (max-width: 600px) {
+      body {
+        padding-bottom: 230px;
+      }
+
+      .gif-slideshow {
+        height: 220px;
+      }
+
+      .gif-controls {
+        bottom: 10px;
+        gap: 5px;
+        padding: 0 5px;
+      }
+
+      .gif-controls button {
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+
+      #slideCounter {
+        padding: 6px 8px;
+        font-size: 11px;
+      }
+
+      .close-button {
+        top: 7px;
+        right: 7px;
+        width: 34px;
+        height: 34px;
+      }
+    
     </style>
 </head>
 <body>
@@ -207,52 +269,190 @@ text2 {
 <h3 style="font-family: sans-serif;">©2026 Wow-Pop।सर्वाधिकार सुरक्षित।</h3>
 </div>
 </div>
-<div class="container">
-    <div class="slider-wrapper">
-        
-        <div class="image-list">
-             <img title="2026 सबसे प्यारा साल हो!" width="270px" height="480px" src="MostLovelyYear.gif"/>
-             <img title="HAPPY VALENTINE'S DAY!" width="400px" height="400px" src="Wow-Pop720.gif"/>
-             <img title="तुमसे प्यार है!" width="480px" height="360px" src="Wow-Pop722.gif"/>
-             <img title="शरारती लड़का!(640×480)" width="640px" height="480px" src="Wow-Pop2.gif"/>
-             <img title="शरारती लड़का!(384×480)" width="384px" height="480px" src="Wow-Pop3.gif"/>
-             <img title="कृपया मेरी मदद करें!" width="550px" height="480px" src="Wow-Pop4.gif"/>
-             <img title="क्षमा मांगना!" width="356px" height="480px" src="Wow-Pop5.gif"/>
-             <img title="क्या कहा आपने?" width="498px" height="457px" src="Wow-Pop7.gif"/>
-             <img title="शरारती लड़का!-क्षमा करना!" width="356px" height="480px" src="Wow-Pop9.gif"/>
-             <img title="VALENTINE DAY के बारे में।" width="598px" height="480px" src="Wow-Pop10.gif"/>
-             <img title="मुझे तुमसे प्यार है!" width="640px" height="440px" src="Wow-Pop72.gif"/>
-             <img title="दीपावली की हार्दिक शुभकामनाएं!" width="640px" height="480px" src="Diwali.gif"/>
-             <img width="640px" height="480px" src="Wow-Pop354568.gif"/>
-             <img title="सच्चा प्यार = समझ।" width="640px" height="360px" src="Wow-Pop4441.gif"/>
-             <video title="होली की शुभकामनाएं!" width="640px" height="346px" loop muted autoplay><source src="Wow-Pop1647.mp4" type="video/mp4"></video>
-             <img title="MERRY CHRISTMAS!" width="498px" height="374px" src="christmas1.gif"/>
-             <img title="MERRY CHRISTMAS!" width="498px" height="374px" src="christmas2.gif"/>
-             <img title="MERRY CHRISTMAS!" width="532px" height="400px" src="christmas3.gif"/>
-             <img title="MERRY CHRISTMAS!" width="532px" height="400px" src="christmas4.gif"/>
-        </div>
-        
-    </div><div class="slider-scrollbar">
-    <div class="scrollbar-track">
-    <div class="scrollbar-thumb"></div></div></div></div>
-<script>
-        var toggle = document.getElementById("click1");
-        toggle.addEventListener("click", show);
+<section
+    class="gif-slideshow"
+    id="gifSlideshow"
+    aria-label="Animated GIF slideshow"
+  >
 
-        function show() {
-            var p = document.getElementsByTagName("text2")[0].style.display = "block";
-        }
-</script>
+    <!-- GIF image -->
+    <div class="gif-display">
+      <img
+        id="gifImage"
+        src="Wow-Pop72.gif"
+        alt="Slideshow image"
+        onclick="location.href=''"
+      >
+    </div>
+
+    <!-- Visual overlay -->
+    <div class="gif-overlay"></div>
+
+    <!-- Hide button in the top-right corner -->
+    <button
+      class="gif-controls close-button"
+      id="hideButton"
+      onclick="toggleSlideshow()"
+      aria-label="Hide slideshow"
+      title="Hide slideshow"
+      style="left:auto; right:12px; bottom:auto;"
+    >
+      &times;
+    </button>
+
+    <!-- Control buttons over the GIF -->
+    <div class="gif-controls">
+
+      <button
+        onclick="previousSlide()"
+        aria-label="Previous GIF"
+        title="Previous GIF"
+      >
+        &#10094; Prev
+      </button>
+
+      <button
+        onclick="togglePlay()"
+        id="playButton"
+        aria-label="Pause slideshow"
+      >
+        &#10074;&#10074; Pause
+      </button>
+
+      <button
+        onclick="nextSlide()"
+        aria-label="Next GIF"
+        title="Next GIF"
+      >
+        Next &#10095;
+      </button>
+
+      <span id="slideCounter" aria-live="off">1 / 4</span>
+
+    </div>
+  </section>
+
+  <!-- Reopen slideshow button -->
+  <button
+    id="showButton"
+    onclick="toggleSlideshow()"
+    style="
+      display:none;
+      position:fixed;
+      bottom:15px;
+      right:15px;
+      z-index:1001;
+      padding:12px 18px;
+      background:#222;
+      color:white;
+      border:1px solid #777;
+      border-radius:25px;
+      cursor:pointer;
+    "
+  >
+    Show GIFs
+  </button>
 <script>
-function myFunction() {
-  var x = document.getElementById("picture");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
+    // Replace these paths with your own GIF files.
+    const gifs = [
+      "Wow-Pop2.gif",
+      "Wow-Pop3.gif",
+      "Wow-Pop4.gif",
+      "Wow-Pop5.gif",
+      "Wow-Pop6.gif",
+      "Wow-Pop7.gif",
+      "Wow-Pop72.gif",
+      "Wow-Pop9.gif",
+      "Wow-Pop10.gif",
+      "Wow-Pop4441.gif"
+    ];
+
+    const slideshow = document.getElementById("gifSlideshow");
+    const gifImage = document.getElementById("gifImage");
+    const playButton = document.getElementById("playButton");
+    const counter = document.getElementById("slideCounter");
+    const showButton = document.getElementById("showButton");
+
+    let currentIndex = 0;
+    let playing = true;
+    let timer = null;
+
+    // Display a selected GIF.
+    function showSlide(index) {
+      currentIndex = (index + gifs.length) % gifs.length;
+      gifImage.src = gifs[currentIndex];
+      counter.textContent =
+        `${currentIndex + 1} / ${gifs.length}`;
+    }
+
+    // Move to the next GIF.
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+      startTimer();
+    }
+
+    // Move to the previous GIF.
+    function previousSlide() {
+      showSlide(currentIndex - 1);
+      startTimer();
+    }
+
+    // Start or restart automatic playback.
+    function startTimer() {
+      clearInterval(timer);
+      timer = null;
+
+      if (playing && !slideshow.hidden) {
+        timer = setInterval(() => {
+          showSlide(currentIndex + 1);
+        }, 4000);
+      }
+    }
+
+    // Toggle automatic playback.
+    function togglePlay() {
+      playing = !playing;
+
+      playButton.innerHTML = playing
+        ? "&#10074;&#10074; Pause"
+        : "&#9654; Play";
+
+      playButton.setAttribute(
+        "aria-label",
+        playing ? "Pause slideshow" : "Play slideshow"
+      );
+
+      startTimer();
+    }
+
+    // Hide or reopen the entire slideshow.
+    function toggleSlideshow() {
+      const isVisible = slideshow.style.display !== "none";
+
+      if (isVisible) {
+        slideshow.style.display = "none";
+        showButton.style.display = "block";
+        document.body.style.paddingBottom = "0";
+        clearInterval(timer);
+        timer = null;
+      } else {
+        slideshow.style.display = "block";
+        showButton.style.display = "none";
+
+        document.body.style.paddingBottom =
+          window.innerWidth <= 600 ? "230px" : "320px";
+
+        startTimer();
+      }
+    }
+
+    // Initialize slideshow.
+    showSlide(0);
+    startTimer();
+  </script>
+        
+    
+
 </body>
 
 </html>
