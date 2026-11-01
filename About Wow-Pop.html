@@ -135,7 +135,80 @@ text2 {
 <h3 style="font-family: sans-serif;">©2026 Wow-Pop.All rights reserved.</h3>
 </div>
 </div>
+<section
+    class="gif-slideshow"
+    id="gifSlideshow"
+    aria-label="Animated GIF slideshow"
+    >
 
+    <!-- GIF image -->
+    <div class="gif-display">
+      <img
+        id="gifImage"
+        src="Wow-Pop72.gif"
+        alt="Slideshow image"
+        onclick="location.href='https://tenor.com/users/wowpop'"
+      >
+    </div>
+
+    <!-- Visual overlay -->
+    <div class="gif-overlay"></div>
+
+    <!-- Hide button in the top-right corner -->
+    
+
+    <!-- Control buttons over the GIF -->
+    <div class="gif-controls">
+
+      <button
+        onclick="previousSlide()"
+        aria-label="Previous GIF"
+        title="Previous GIF"
+      >
+        &#10094; Prev
+      </button>
+
+      <button
+        onclick="togglePlay()"
+        id="playButton"
+        aria-label="Pause slideshow"
+      >
+        &#10074;&#10074; Pause
+      </button>
+
+      <button
+        onclick="nextSlide()"
+        aria-label="Next GIF"
+        title="Next GIF"
+      >
+        Next &#10095;
+      </button>
+
+      <span id="slideCounter" aria-live="off">1 / 4</span>
+
+    </div>
+  </section>
+
+  <!-- Reopen slideshow button -->
+  <button
+    id="showButton"
+    onclick="toggleSlideshow()"
+    style="
+      display:none;
+      position:fixed;
+      bottom:15px;
+      right:15px;
+      z-index:1001;
+      padding:12px 18px;
+      background:#222;
+      color:white;
+      border:1px solid #777;
+      border-radius:25px;
+      cursor:pointer;
+    "
+  >
+    Show GIFs
+  </button>
 <script>
         var toggle = document.getElementById("click1");
         toggle.addEventListener("click", show);
