@@ -363,6 +363,111 @@ function myFunction() {
   }
 }
 </script>
+<script>
+    // Replace these paths with your own GIF files.
+    const gifs = [
+      "Wow-Pop2.gif",
+      "Wow-Pop3.gif",
+      "Wow-Pop5.gif",
+      "Wow-Pop6.gif",
+      "Wow-Pop7.gif",
+      "Wow-Pop72.gif",
+      "Wow-Pop721.gif",
+      "Wow-Pop9.gif",
+      "Wow-Pop10.gif",
+      "Wow-Pop4441.gif",
+      "Wow-Pop4.gif",
+      "christmas1.gif",
+      "christmas2.gif",
+      "christmas3.gif",
+      "christmas4.gif",
+      "Wow-Pop720.gif",
+      "Diwali.gif"
+    ];
+
+    const slideshow = document.getElementById("gifSlideshow");
+    const gifImage = document.getElementById("gifImage");
+    const playButton = document.getElementById("playButton");
+    const counter = document.getElementById("slideCounter");
+    const showButton = document.getElementById("showButton");
+
+    let currentIndex = 0;
+    let playing = true;
+    let timer = null;
+
+    // Display a selected GIF.
+    function showSlide(index) {
+      currentIndex = (index + gifs.length) % gifs.length;
+      gifImage.src = gifs[currentIndex];
+      counter.textContent =
+        `${currentIndex + 1} / ${gifs.length}`;
+    }
+
+    // Move to the next GIF.
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+      startTimer();
+    }
+
+    // Move to the previous GIF.
+    function previousSlide() {
+      showSlide(currentIndex - 1);
+      startTimer();
+    }
+
+    // Start or restart automatic playback.
+    function startTimer() {
+      clearInterval(timer);
+      timer = null;
+
+      if (playing && !slideshow.hidden) {
+        timer = setInterval(() => {
+          showSlide(currentIndex + 1);
+        }, 4000);
+      }
+    }
+
+    // Toggle automatic playback.
+    function togglePlay() {
+      playing = !playing;
+
+      playButton.innerHTML = playing
+        ? "&#10074;&#10074; Pause"
+        : "&#9654; Play";
+
+      playButton.setAttribute(
+        "aria-label",
+        playing ? "Pause slideshow" : "Play slideshow"
+      );
+
+      startTimer();
+    }
+
+    // Hide or reopen the entire slideshow.
+    function toggleSlideshow() {
+      const isVisible = slideshow.style.display !== "none";
+
+      if (isVisible) {
+        slideshow.style.display = "none";
+        showButton.style.display = "block";
+        document.body.style.paddingBottom = "0";
+        clearInterval(timer);
+        timer = null;
+      } else {
+        slideshow.style.display = "block";
+        showButton.style.display = "none";
+
+        document.body.style.paddingBottom =
+          window.innerWidth <= 600 ? "230px" : "320px";
+
+        startTimer();
+      }
+    }
+
+    // Initialize slideshow.
+    showSlide(0);
+    startTimer();
+  </script>
 </body>
 
 </html>
