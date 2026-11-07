@@ -481,6 +481,162 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 </script>
+<script>
+        // Get HTML elements
+        const overlay = document.getElementById("photoOverlay");
+        const openBtn = document.getElementById("openSlideshow");
+        const closeBtn = document.getElementById("closeSlideshow");
+        const prevBtn = document.getElementById("prevSlide");
+        const nextBtn = document.getElementById("nextSlide");
+        const playPauseBtn = document.getElementById("playPause");
+        const restartBtn = document.getElementById("restart");
+        const counter = document.getElementById("photoCounter");
+
+        const slides = document.querySelectorAll(".slide");
+        const thumbnails = document.querySelectorAll(".thumbnail");
+
+        let currentIndex = 0;
+        let timer = null;
+        let isPlaying = true;
+
+        // Show a specific photo
+        function showSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle(
+                    "active",
+                    i === currentIndex
+                );
+            });
+
+            thumbnails.forEach((thumbnail, i) => {
+                thumbnail.classList.toggle(
+                    "active",
+                    i === currentIndex
+                );
+            });
+
+            counter.textContent =
+                `Photo ${currentIndex + 1} of ${slides.length}`;
+        }
+
+        // Move to the next photo
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        // Move to the previous photo
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        // Start automatic slideshow
+        function startAutoPlay() {
+            clearInterval(timer);
+
+            isPlaying = true;
+            playPauseBtn.textContent = "Pause";
+
+            timer = setInterval(() => {
+                if (overlay.classList.contains("active")) {
+                    nextSlide();
+                }
+            }, 3000);
+        }
+
+        // Pause automatic slideshow
+        function pauseAutoPlay() {
+            clearInterval(timer);
+            timer = null;
+
+            isPlaying = false;
+            playPauseBtn.textContent = "Play";
+        }
+
+        // Open overlay
+        function openSlideshow() {
+            overlay.classList.add("active");
+            startAutoPlay();
+            closeBtn.focus();
+        }
+
+        // Close overlay
+        function closeSlideshow() {
+            overlay.classList.remove("active");
+            pauseAutoPlay();
+            openBtn.focus();
+        }
+
+        // Open and close buttons
+        openBtn.addEventListener("click", openSlideshow);
+        closeBtn.addEventListener("click", closeSlideshow);
+
+        // Manual navigation
+        nextBtn.addEventListener("click", () => {
+            nextSlide();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            prevSlide();
+        });
+
+        // Play/Pause button
+        playPauseBtn.addEventListener("click", () => {
+            if (isPlaying) {
+                pauseAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        });
+
+        // Restart slideshow from the first photo
+        restartBtn.addEventListener("click", () => {
+            showSlide(0);
+            startAutoPlay();
+        });
+
+        // Thumbnail navigation
+        thumbnails.forEach((thumbnail) => {
+            function selectThumbnail() {
+                showSlide(Number(thumbnail.dataset.index));
+            }
+
+            thumbnail.addEventListener("click", selectThumbnail);
+
+            thumbnail.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    selectThumbnail();
+                }
+            });
+        });
+
+        // Close overlay by clicking outside the slideshow
+        overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) {
+                closeSlideshow();
+            }
+        });
+
+        // Keyboard controls
+        document.addEventListener("keydown", (event) => {
+            if (!overlay.classList.contains("active")) {
+                return;
+            }
+
+            if (event.key === "Escape") {
+                closeSlideshow();
+            } else if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Display the first photo initially
+        showSlide(0);
+    </script>
 </body>
 
 </html>
