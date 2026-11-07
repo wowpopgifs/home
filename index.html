@@ -89,8 +89,7 @@
   transform: translate(-50%, -50%);
   z-index: 2;
   cursor: pointer;
-  display: none;
-     }
+      }
 .text {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
@@ -144,38 +143,29 @@
 <body>
 <div class="overlay" id="picture">
 <center>
-<table class="sticky1" width="50%" height="25%" style="background-color:transparent; align-items: center;">
+<table class="sticky1" id="picture" width="50%" height="25%" style="background-color:transparent; align-items: center;">
 <tbody>
 <tr>
-<td><center><a><i onclick="myFunction()" id="font1" title="CLOSE." class="material-icons">close</i></a></center></td>
+<td><center><a><i onclick="myFunction()" id="font" title="CLOSE." class="material-icons">close</i></a></center></td>
 </tr>
 <tr>
-<td><img style="border-radius: 20px;" src="Wow-Pop969.png" width="696px" height="564px"/></td>
+<td>
+<center>
+  <!-- Slideshow container -->
+  <div class="slideshow-container" style="border-radius: 20%;">
+  <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
-     
-  </div>
-
-  <div class="mySlides fade">
-     
-  </div>
-
-  <div class="mySlides fade">
-     
+  <img id="radius" onclick="location.href='https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGw0dzQwY284eW93bXYzcHVpcnZycWNlOTlvcDc1MXJ3YmZuZzlhMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/BqzSEYOacnMVWcUU7j/giphy.gif'" title="HAPPY HOLI!" width="332.4px" height="233.4px" src="holi.png"/>   
   </div>
   <div class="mySlides fade">
-     
+  <img id="radius" title="HAPPY HOLI!" width="315px" height="113.8px" src="happyholi.png"/>   
   </div>
-<!-- The dots/circles -->
+  <!-- The dots/circles -->
 <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1)"></span>
   <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-  <span class="dot" onclick="currentSlide(4)"></span>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
+</div>
 </center>
 </div>
 <table class="id" alin="center" width="100%" cellspacing="15" cellspacing="15" style="background-image: Wow-Pop3248.jpg;">
