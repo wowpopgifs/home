@@ -115,6 +115,177 @@ text2 {
   padding: 20px;
   text-align: center;
 }
+button {
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 18px;
+            font-size: 16px;
+        }
+
+        .open-btn {
+            background: orange;
+            color: white;
+        }
+
+        /* Full-screen overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        /* Slideshow container */
+        .slideshow {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide img {
+            display: block;
+            width: 100%;
+            height: 65vh;
+            max-height: 600px;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+
+        .caption {
+            color: white;
+            font-size: 18px;
+            padding: 12px;
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: transparent;
+            color: white;
+            font-size: 32px;
+            padding: 5px 12px;
+        }
+
+        /* Previous and Next buttons */
+        .nav-btn {
+            position: absolute;
+            top: 40%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 28px;
+            padding: 12px 18px;
+        }
+
+        .nav-btn:hover,
+        .control-btn:hover {
+            background: orange;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Play/Pause controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .control-btn {
+            background: #333;
+            color: white;
+        }
+
+        /* Thumbnail navigation */
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 75px;
+            height: 55px;
+            object-fit: cover;
+            opacity: 0.55;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .thumbnail.active {
+            opacity: 1;
+            border-color: orange;
+        }
+
+        .counter {
+            color: #ddd;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .slide img {
+                height: 50vh;
+            }
+
+            .nav-btn {
+                top: 35%;
+                font-size: 22px;
+                padding: 10px;
+            }
+
+            .thumbnail {
+                width: 55px;
+                height: 42px;
+            }
+
+            .page-content h1 {
+                font-size: 25px;
+            }
+        }
 .footer {
         /* The image used */
   background-image: url("Wow-Pop3248.jpg");
@@ -204,6 +375,7 @@ text2 {
 <h1 onclick="location.href='GIF CARDS of Wow-Pop.html'" id="border" style="color: white;">GIF CARDS of Wow-Pop</h1>
 <i onclick="location.href='About Wow-Pop.html'" id="font" class="material-icons">badge</i>
 <h1 onclick="location.href='About Wow-Pop.html'" id="border" style="color: white;font-family: sans-serif;">About Wow-Pop</h1>
+<button class="open-btn" id="openSlideshow">Wow-Pop STICKERS</button>
 <h3 style="font-family: sans-serif;">©2026 Wow-Pop.All rights reserved.</h3>
 </div>
 </div>
@@ -228,6 +400,103 @@ text2 {
 </table>
 </div>
 </div>
+<div class="overlay" id="photoOverlay"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Photo slideshow">
+
+        <div class="slideshow">
+
+            <!-- Close button -->
+            <button class="close-btn" id="closeSlideshow"
+                    aria-label="Close slideshow">
+                &times;
+            </button>
+
+            <!-- Photo 1 -->
+            <div class="slide active">
+                <img
+                    src=""
+                    alt="">
+                <div class="caption"></div>
+            </div>
+
+            <!-- Photo 2 -->
+            <div class="slide">
+                <img
+                    src=""
+                    alt="">
+                <div class="caption"></div>
+            </div>
+
+            <!-- Photo 3 -->
+            <div class="slide">
+                <img
+                    src=""
+                    alt="">
+                <div class="caption"></div>
+            </div>
+
+            <!-- Photo 4 -->
+            <div class="slide">
+                <img
+                    src=""
+                    alt="">
+                <div class="caption"></div>
+            </div>
+
+            <!-- Previous and Next buttons -->
+            <button class="nav-btn prev" id="prevSlide"
+                    aria-label="Previous photo">
+                &#10094;
+            </button>
+
+            <button class="nav-btn next" id="nextSlide"
+                    aria-label="Next photo">
+                &#10095;
+            </button>
+
+            <!-- Slideshow controls -->
+            <div class="controls">
+                <button class="control-btn" id="playPause">
+                    Pause
+                </button>
+
+                <button class="control-btn" id="restart">
+                    Start Again
+                </button>
+            </div>
+
+            <!-- Photo counter -->
+            <div class="counter" id="photoCounter" aria-live="polite">
+                Photo 1 of 4
+            </div>
+
+            <!-- Thumbnail navigation -->
+            <div class="thumbnails" id="thumbnails">
+                <img class="thumbnail active"
+                     src=""
+                     alt=""
+                     data-index="0" tabindex="0" role="button">
+
+                <img class="thumbnail"
+                     src=""
+                     alt=""
+                     data-index="1" tabindex="0" role="button">
+
+                <img class="thumbnail"
+                     src=""
+                     alt=""
+                     data-index="2" tabindex="0" role="button">
+
+                <img class="thumbnail"
+                     src=""
+                     alt=""
+                     data-index="3" tabindex="0" role="button">
+            </div>
+
+        </div>
+    </div>
 <script>
         var toggle = document.getElementById("click1");
         toggle.addEventListener("click", show);
@@ -310,6 +579,162 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 </script>
+<script>
+        // Get HTML elements
+        const overlay = document.getElementById("photoOverlay");
+        const openBtn = document.getElementById("openSlideshow");
+        const closeBtn = document.getElementById("closeSlideshow");
+        const prevBtn = document.getElementById("prevSlide");
+        const nextBtn = document.getElementById("nextSlide");
+        const playPauseBtn = document.getElementById("playPause");
+        const restartBtn = document.getElementById("restart");
+        const counter = document.getElementById("photoCounter");
+
+        const slides = document.querySelectorAll(".slide");
+        const thumbnails = document.querySelectorAll(".thumbnail");
+
+        let currentIndex = 0;
+        let timer = null;
+        let isPlaying = true;
+
+        // Show a specific photo
+        function showSlide(index) {
+            currentIndex = (index + slides.length) % slides.length;
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle(
+                    "active",
+                    i === currentIndex
+                );
+            });
+
+            thumbnails.forEach((thumbnail, i) => {
+                thumbnail.classList.toggle(
+                    "active",
+                    i === currentIndex
+                );
+            });
+
+            counter.textContent =
+                `Photo ${currentIndex + 1} of ${slides.length}`;
+        }
+
+        // Move to the next photo
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        // Move to the previous photo
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        // Start automatic slideshow
+        function startAutoPlay() {
+            clearInterval(timer);
+
+            isPlaying = true;
+            playPauseBtn.textContent = "Pause";
+
+            timer = setInterval(() => {
+                if (overlay.classList.contains("active")) {
+                    nextSlide();
+                }
+            }, 3000);
+        }
+
+        // Pause automatic slideshow
+        function pauseAutoPlay() {
+            clearInterval(timer);
+            timer = null;
+
+            isPlaying = false;
+            playPauseBtn.textContent = "Play";
+        }
+
+        // Open overlay
+        function openSlideshow() {
+            overlay.classList.add("active");
+            startAutoPlay();
+            closeBtn.focus();
+        }
+
+        // Close overlay
+        function closeSlideshow() {
+            overlay.classList.remove("active");
+            pauseAutoPlay();
+            openBtn.focus();
+        }
+
+        // Open and close buttons
+        openBtn.addEventListener("click", openSlideshow);
+        closeBtn.addEventListener("click", closeSlideshow);
+
+        // Manual navigation
+        nextBtn.addEventListener("click", () => {
+            nextSlide();
+        });
+
+        prevBtn.addEventListener("click", () => {
+            prevSlide();
+        });
+
+        // Play/Pause button
+        playPauseBtn.addEventListener("click", () => {
+            if (isPlaying) {
+                pauseAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        });
+
+        // Restart slideshow from the first photo
+        restartBtn.addEventListener("click", () => {
+            showSlide(0);
+            startAutoPlay();
+        });
+
+        // Thumbnail navigation
+        thumbnails.forEach((thumbnail) => {
+            function selectThumbnail() {
+                showSlide(Number(thumbnail.dataset.index));
+            }
+
+            thumbnail.addEventListener("click", selectThumbnail);
+
+            thumbnail.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    selectThumbnail();
+                }
+            });
+        });
+
+        // Close overlay by clicking outside the slideshow
+        overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) {
+                closeSlideshow();
+            }
+        });
+
+        // Keyboard controls
+        document.addEventListener("keydown", (event) => {
+            if (!overlay.classList.contains("active")) {
+                return;
+            }
+
+            if (event.key === "Escape") {
+                closeSlideshow();
+            } else if (event.key === "ArrowRight") {
+                nextSlide();
+            } else if (event.key === "ArrowLeft") {
+                prevSlide();
+            }
+        });
+
+        // Display the first photo initially
+        showSlide(0);
+    </script>
 </body>
 
 </html>
