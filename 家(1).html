@@ -20,8 +20,8 @@
 <style>
 #icon {font-size: 60px;
        color: gold;}
-#icon:hover {color: red;}
-#td:hover {background-color: red;}
+#icon:hover {color: none;}
+#td:hover {background-color: none;}
 #picture.sticky{
 position: -webkit-sticky;
 position: fixed;
@@ -35,7 +35,7 @@ text2{
         }
 #font {font-size: 100px;
        color: white;}
-#font:hover {color: red;}
+#font:hover {color: none;}
 #border {border-block-color: white;border-bottom-style: solid;border-right-style: none;border-top-style: none;border-left-style: solid;border-radius: 20px;}
 .id {
         /* The image used */
@@ -83,7 +83,7 @@ text2{
 }
 
 .active, .dot:hover {
-  background-color: red;
+  background-color: none;
 }
 .text {
   background-color: rgb(0,0,0); /* Fallback color */
@@ -383,48 +383,41 @@ button {
                 &times;
             </button>
 
+            
             <!-- STICKER 1 -->
             <div class="slide active">
-                <img
-                    src="Stick10.png"
-                    alt="show sticker"
-                    onclick="location.href='https://media.giphy.com/media/80YwHpH4SMkNED2sWh/giphy.gif'" >
-                <div class="caption">"HAPPY DIWALI!"</div>
-            </div>
-            <!-- STICKER 2 -->
-            <div class="slide">
                 <img
                     src="Stick6.png"
                     alt="show sticker"
                     onclick="location.href='https://tenor.com/eF4zAPavXnd.gif'" >
-                <div class="caption">"WHAT DID YOU SAY?"</div>
+                <div class="caption">"何って言ったの？"</div>
+            </div>
+
+            <!-- STICKER 2 -->
+            <div class="slide">
+                <img
+                    src="Stick9.png"
+                    alt="show sticker"
+                    onclick="location.href='https://tenor.com/cp505xxhs3W.gif'" >
+                <div class="caption">"何って言ったの？"</div>
             </div>
 
             <!-- STICKER 3 -->
             <div class="slide">
                 <img
-                    src="Stick7.png"
+                    src="Stick1.png"
                     alt="show sticker"
-                    onclick="location.href='https://tenor.com/mXfjawNHZyq.gif'" >
-                <div class="caption">"WHAT DID YOU SAY?"</div>
+                    onclick="location.href='https://tenor.com/cjH6BtLvVVq.gif'" >
+                <div class="caption">すべて順調です。</div>
             </div>
 
             <!-- STICKER 4 -->
             <div class="slide">
                 <img
-                    src="Stick1.png"
+                    src="Stick4.png"
                     alt="show sticker"
-                    onclick="location.href='https://tenor.com/cjH6BtLvVVq.gif'" >
-                <div class="caption">EVERYTHIG IS FINE</div>
-            </div>
-
-            <!-- STICKER 5 -->
-            <div class="slide">
-                <img
-                    src="Stick2.png"
-                    alt="show sticker"
-                    onclick="location.href='https://tenor.com/yy6dA2yDuH.gif'" >
-                <div class="caption">EVERYTHING IS FINE</div>
+                    onclick="location.href='https://tenor.com/n7qOs5U4H8S.gif'" >
+                <div class="caption">すべて順調です。</div>
             </div>
 
             <!-- Previous and Next buttons -->
@@ -451,40 +444,34 @@ button {
 
             <!-- Photo counter -->
             <div class="counter" id="photoCounter" aria-live="polite">
-                Sticker 1 of 5
+                Sticker 1 of 4
             </div>
 
             <!-- Thumbnail navigation -->
             <div class="thumbnails" id="thumbnails">
-                <img class="thumbnail active"
-                     src="Stick10.png"
-                     alt="show sticker"
-                     onclick="location.href='https://media.giphy.com/media/80YwHpH4SMkNED2sWh/giphy.gif'" 
-                     data-index="0" tabindex="0" role="button">
-              
-                <img class="thumbnail active"
+               <img class="thumbnail active"
                      src="Stick6.png"
                      alt="show sticker"
                      onclick="location.href='https://tenor.com/eF4zAPavXnd.gif'" 
-                     data-index="1" tabindex="0" role="button">
+                     data-index="0" tabindex="0" role="button">
 
                 <img class="thumbnail"
-                     src="Stick7.png"
+                     src="Stick9.png"
                      alt="show sticker"
-                     onclick="location.href='https://tenor.com/mXfjawNHZyq.gif'" 
-                     data-index="2" tabindex="0" role="button">
+                     onclick="location.href=''" 
+                     data-index="1" tabindex="0" role="button">
 
                 <img class="thumbnail"
                      src="Stick1.png"
                      alt="show sticker"
                      onclick="location.href='https://tenor.com/cjH6BtLvVVq.gif'" 
-                     data-index="3" tabindex="0" role="button">
+                     data-index="2" tabindex="0" role="button">
 
                 <img class="thumbnail"
-                     src="Stick2.png"
+                     src="Stick4.png"
                      alt="show sticker"
-                     onclick="location.href='https://tenor.com/yy6dA2yDuH.gif'" 
-                     data-index="4" tabindex="0" role="button">
+                     onclick="location.href=''" 
+                     data-index="3" tabindex="0" role="button">
             </div>
 
         </div>
