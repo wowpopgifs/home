@@ -20,8 +20,8 @@
 <style>
 #icon {font-size: 60px;
        color: gold;}
-#icon:hover {color: red;}
-#td:hover {background-color: red;}
+#icon:hover {color: none;}
+#td:hover {background-color: none;}
 #picture.sticky{
 position: -webkit-sticky;
 position: fixed;
@@ -35,7 +35,7 @@ text2{
         }
 #font {font-size: 100px;
        color: white;}
-#font:hover {color: red;}
+#font:hover {color: none;}
 #border {border-block-color: white;border-bottom-style: solid;border-right-style: none;border-top-style: none;border-left-style: solid;border-radius: 20px;}
 #click1:hover {color: red;}
 .id {
@@ -81,10 +81,11 @@ text2{
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
+  display: none;
 }
 
 .active, .dot:hover {
-  background-color: red;
+  background-color: none;
 }
 .text {
   background-color: rgb(0,0,0); /* Fallback color */
