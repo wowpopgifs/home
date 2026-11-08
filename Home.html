@@ -80,6 +80,7 @@ text2 {
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
+  display: none;
 }
 
 .active, .dot:hover {
@@ -353,10 +354,10 @@ button {
   <div class="slideshow-container" style="border-radius: 20%;">
   <!-- Full-width images with number and caption text -->
   <div class="mySlides fade">
-  <img id="radius" onclick="location.href='https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGw0dzQwY284eW93bXYzcHVpcnZycWNlOTlvcDc1MXJ3YmZuZzlhMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/BqzSEYOacnMVWcUU7j/giphy.gif'" title="HAPPY HOLI!" width="332.4px" height="233.4px" src="holi.png"/>   
+  <img id="radius" onclick="location.href='https://media.giphy.com/media/80YwHpH4SMkNED2sWh/giphy.gif'" title="HAPPY DIWALI!" width="100px" height="100px" src="Stick10.png"/>   
   </div>
   <div class="mySlides fade">
-  <img id="radius" title="HAPPY HOLI!" width="315px" height="113.8px" src="happyholi.png"/>   
+  <img id="radius" onclick="location.href='https://tenor.com/iSBWoYiK8pD.gif'" title="HAPPY DIWALI!" width="192px" height="106.3px" src="Wow-Pop41387.png"/>   
   </div>
   <!-- The dots/circles -->
 <div style="text-align:center">
@@ -417,13 +418,21 @@ button {
             <!-- STICKER 1 -->
             <div class="slide active">
                 <img
+                    src="Stick10.png"
+                    alt="show sticker"
+                    onclick="location.href='https://media.giphy.com/media/80YwHpH4SMkNED2sWh/giphy.gif'" >
+                <div class="caption">"HAPPY DIWALI!"</div>
+            </div>
+            <!-- STICKER 2 -->
+            <div class="slide active">
+                <img
                     src="Stick6.png"
                     alt="show sticker"
                     onclick="location.href='https://tenor.com/eF4zAPavXnd.gif'" >
                 <div class="caption">"WHAT DID YOU SAY?"</div>
             </div>
 
-            <!-- STICKER 2 -->
+            <!-- STICKER 3 -->
             <div class="slide">
                 <img
                     src="Stick7.png"
@@ -432,7 +441,7 @@ button {
                 <div class="caption">"WHAT DID YOU SAY?"</div>
             </div>
 
-            <!-- STICKER 3 -->
+            <!-- STICKER 4 -->
             <div class="slide">
                 <img
                     src="Stick1.png"
@@ -441,7 +450,7 @@ button {
                 <div class="caption">EVERYTHIG IS FINE</div>
             </div>
 
-            <!-- STICKER 4 -->
+            <!-- STICKER 5 -->
             <div class="slide">
                 <img
                     src="Stick2.png"
@@ -474,34 +483,40 @@ button {
 
             <!-- Photo counter -->
             <div class="counter" id="photoCounter" aria-live="polite">
-                Photo 1 of 4
+                Sticker 1 of 5
             </div>
 
             <!-- Thumbnail navigation -->
             <div class="thumbnails" id="thumbnails">
                 <img class="thumbnail active"
+                     src="Stick10.png"
+                     alt="show sticker"
+                     onclick="location.href='https://media.giphy.com/media/80YwHpH4SMkNED2sWh/giphy.gif'" 
+                     data-index="0" tabindex="0" role="button">
+              
+                <img class="thumbnail active"
                      src="Stick6.png"
                      alt="show sticker"
                      onclick="location.href='https://tenor.com/eF4zAPavXnd.gif'" 
-                     data-index="0" tabindex="0" role="button">
+                     data-index="1" tabindex="0" role="button">
 
                 <img class="thumbnail"
                      src="Stick7.png"
                      alt="show sticker"
                      onclick="location.href='https://tenor.com/mXfjawNHZyq.gif'" 
-                     data-index="1" tabindex="0" role="button">
+                     data-index="2" tabindex="0" role="button">
 
                 <img class="thumbnail"
                      src="Stick1.png"
                      alt="show sticker"
                      onclick="location.href='https://tenor.com/cjH6BtLvVVq.gif'" 
-                     data-index="2" tabindex="0" role="button">
+                     data-index="3" tabindex="0" role="button">
 
                 <img class="thumbnail"
                      src="Stick2.png"
                      alt="show sticker"
                      onclick="location.href='https://tenor.com/yy6dA2yDuH.gif'" 
-                     data-index="3" tabindex="0" role="button">
+                     data-index="4" tabindex="0" role="button">
             </div>
 
         </div>
