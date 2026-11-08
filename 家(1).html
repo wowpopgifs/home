@@ -370,6 +370,125 @@ button {
 </table>
 </div>
 </div>
+<div class="overlay" id="photoOverlay"
+         role="dialog"
+         aria-modal="true"
+         aria-label="Photo slideshow">
+
+        <div class="slideshow">
+
+            <!-- Close button -->
+            <button class="close-btn" id="closeSlideshow"
+                    aria-label="Close slideshow">
+                &times;
+            </button>
+
+            <!-- STICKER 1 -->
+            <div class="slide active">
+                <img
+                    src="Stick10.png"
+                    alt="show sticker"
+                    onclick="location.href='https://media.giphy.com/media/80YwHpH4SMkNED2sWh/giphy.gif'" >
+                <div class="caption">"HAPPY DIWALI!"</div>
+            </div>
+            <!-- STICKER 2 -->
+            <div class="slide">
+                <img
+                    src="Stick6.png"
+                    alt="show sticker"
+                    onclick="location.href='https://tenor.com/eF4zAPavXnd.gif'" >
+                <div class="caption">"WHAT DID YOU SAY?"</div>
+            </div>
+
+            <!-- STICKER 3 -->
+            <div class="slide">
+                <img
+                    src="Stick7.png"
+                    alt="show sticker"
+                    onclick="location.href='https://tenor.com/mXfjawNHZyq.gif'" >
+                <div class="caption">"WHAT DID YOU SAY?"</div>
+            </div>
+
+            <!-- STICKER 4 -->
+            <div class="slide">
+                <img
+                    src="Stick1.png"
+                    alt="show sticker"
+                    onclick="location.href='https://tenor.com/cjH6BtLvVVq.gif'" >
+                <div class="caption">EVERYTHIG IS FINE</div>
+            </div>
+
+            <!-- STICKER 5 -->
+            <div class="slide">
+                <img
+                    src="Stick2.png"
+                    alt="show sticker"
+                    onclick="location.href='https://tenor.com/yy6dA2yDuH.gif'" >
+                <div class="caption">EVERYTHING IS FINE</div>
+            </div>
+
+            <!-- Previous and Next buttons -->
+            <button class="nav-btn prev" id="prevSlide"
+                    aria-label="Previous photo">
+                &#10094;
+            </button>
+
+            <button class="nav-btn next" id="nextSlide"
+                    aria-label="Next photo">
+                &#10095;
+            </button>
+
+            <!-- Slideshow controls -->
+            <div class="controls">
+                <button class="control-btn" id="playPause">
+                    Pause
+                </button>
+
+                <button class="control-btn" id="restart">
+                    Start Again
+                </button>
+            </div>
+
+            <!-- Photo counter -->
+            <div class="counter" id="photoCounter" aria-live="polite">
+                Sticker 1 of 5
+            </div>
+
+            <!-- Thumbnail navigation -->
+            <div class="thumbnails" id="thumbnails">
+                <img class="thumbnail active"
+                     src="Stick10.png"
+                     alt="show sticker"
+                     onclick="location.href='https://media.giphy.com/media/80YwHpH4SMkNED2sWh/giphy.gif'" 
+                     data-index="0" tabindex="0" role="button">
+              
+                <img class="thumbnail active"
+                     src="Stick6.png"
+                     alt="show sticker"
+                     onclick="location.href='https://tenor.com/eF4zAPavXnd.gif'" 
+                     data-index="1" tabindex="0" role="button">
+
+                <img class="thumbnail"
+                     src="Stick7.png"
+                     alt="show sticker"
+                     onclick="location.href='https://tenor.com/mXfjawNHZyq.gif'" 
+                     data-index="2" tabindex="0" role="button">
+
+                <img class="thumbnail"
+                     src="Stick1.png"
+                     alt="show sticker"
+                     onclick="location.href='https://tenor.com/cjH6BtLvVVq.gif'" 
+                     data-index="3" tabindex="0" role="button">
+
+                <img class="thumbnail"
+                     src="Stick2.png"
+                     alt="show sticker"
+                     onclick="location.href='https://tenor.com/yy6dA2yDuH.gif'" 
+                     data-index="4" tabindex="0" role="button">
+            </div>
+
+        </div>
+    </div>
 <script>
         var toggle = document.getElementById("click1");
         toggle.addEventListener("click", show);
